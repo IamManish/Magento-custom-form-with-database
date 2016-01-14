@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <myform_index_index>
+        <reference name="content">
+        <block type="myform/getrecords" name="myform" template="myform/myform.phtml"></block>
+        </reference>
+    </myform_index_index>
+ 	
+	<myform_view_index>
+        <reference name="content">
+        <block type="core/template" name="myform" template="myform/viewall.phtml"></block>
+        </reference>
+    </myform_view_index>
+</layout>

@@ -1,0 +1,70 @@
+<form action="<?php echo Mage::getUrl('myform/index/savepost');?>" id="my-form" method="post"> 
+   
+  <label for="fname">Title: <span class="required">*</span></label>
+  <input name="fname" id="fname" type="text" class="input-text required-entry">
+             
+ <br><br> 
+
+ 		
+<label for="content">Content: <span class="required">*</span></label>
+<input name="content" id="content" type="text" class="input-text required-entry">
+ 
+                                    
+ <br><br> 
+
+ 
+<label for="tickets">Tickets: <span class="required">*</span></label>
+<select id="sel_tickets" name="sel_tickets" class="required-entry">
+<option value="">Please Select</option>
+<?php 
+$get_tickets = $this->getTickets();
+foreach($get_tickets as $tickets){ ?>  
+            
+   <option value="<?php echo $tickets->getData('ticket_id') ;?>">
+    <?php echo $tickets->getData('title') ;?>
+    </option>
+    
+<?php 
+      }  
+?> 
+</select>
+                                    
+ <br><br> 
+ 
+ <div id="getres">
+ 
+ </div>
+ 
+ <br><br>
+  
+<input type = "submit" id="btnsubmit" name="btnsubmit">
+
+</form>
+
+
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+var myjqueryvar = jQuery.noConflict();
+myjqueryvar(document).ready(function () {	
+	 	 
+	// when any option from state list is selected
+	myjqueryvar("#sel_tickets").change(function(){
+		// get the selected option value of state
+		var id = myjqueryvar(this).val();
+		var dataString = 'id='+ id;
+		myjqueryvar.ajax({
+    			type: "POST",
+    			url: "<?php echo Mage::getUrl('myform/index/getval');?>",
+    			data: dataString,
+    			cache: false,
+    			success: function(response){
+    				myjqueryvar("#getres").html(response);					
+    			}			
+		});
+	});				
+});
+
+//< ![CDATA[
+var customForm = new VarienForm('my-form');
+//]]>
+</script>

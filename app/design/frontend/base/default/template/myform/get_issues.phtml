@@ -1,0 +1,15 @@
+<label for="tickets">Issues: <span class="required">*</span></label>
+<select id="sel_issues" name="sel_issues" class="required-entry">
+<option value="">Please Select</option>
+<?php 
+$get_issues = $this->getSelectedIssues();
+foreach($get_issues as $issues){ ?>  
+            
+   <option value="<?php echo $issues->getData('issue_id') ;?>">
+    <?php echo $issues->getData('title') ;?>
+    </option>
+    
+<?php 
+      }  
+?> 
+</select>

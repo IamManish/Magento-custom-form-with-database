@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Mage
+ * @package    Mage_Core
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Abhishek_Myform>
+            <version>0.1.0</version>
+        </Abhishek_Myform>
+    </modules>
+    <frontend>
+        <routers>
+            <myform>
+                <use>standard</use>
+                <args>
+                    <module>Abhishek_Myform</module>
+                    <frontName>myform</frontName>
+                </args>
+            </myform>
+        </routers>
+        <layout>
+            <updates>
+                <myform>
+                    <file>myform.xml</file>
+                </myform>
+            </updates>
+        </layout>
+    </frontend>   
+    <global>
+        <models>
+            <myform>
+                <class>Abhishek_Myform_Model</class>
+                <resourceModel>Abhishek_myform_resource</resourceModel>
+            </myform>
+            <Abhishek_myform_resource>
+                <class>Abhishek_Myform_Model_Resource</class>
+                <entities>
+                    <enquiry>
+                        <table>enquiry</table>
+                    </enquiry>
+                    <ticket>
+                        <table>ticket</table>
+                    </ticket>
+                     <issue>
+                        <table>issue</table>
+                    </issue>
+                </entities>
+            </Abhishek_myform_resource>
+        </models>
+        <resources>
+            <myform_setup>
+                <setup>
+                    <module>Abhishek_Myform</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </myform_setup>
+            <myform_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </myform_write>
+            <myform_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </myform_read>
+        </resources>
+        <blocks>
+            <myform>
+                <class>Abhishek_Myform_Block</class>
+            </myform>
+        </blocks>
+        <helpers>
+            <myform>
+                <class>Abhishek_Myform_Helper</class>
+            </myform>
+        </helpers>
+    </global>
+</config>
