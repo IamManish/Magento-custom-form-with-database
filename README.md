@@ -3,3 +3,5 @@ Custom form using this extension and save information into database.
 
 
 Copy and paste app folder directory in your Magento directory and after that please clear cache and reindex data from magento admin panel 
+
+Web url :- http://localhost/foldername/index.php/myform/
